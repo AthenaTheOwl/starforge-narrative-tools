@@ -1,13 +1,10 @@
 # No. 14 - starforge-narrative-tools
 
-A curated exhibit from Starforge, an in-progress narrative game project. This
-repo extracts the public Act 1 slice plus the Python conversion and validation
-tooling used to move long-form writing toward game-ready data.
-
-The story itself is published as
-[Starforge Canticles on Royal Road](https://www.royalroad.com/fiction/149065/starforge-canticles).
-This repo shows the production system around the published portion of that
-public serial.
+[Starforge Canticles](https://www.royalroad.com/fiction/149065/starforge-canticles)
+is a serialized speculative-fiction novel I'm publishing chapter-by-chapter on
+Royal Road. This repo is the Python toolkit behind it: prose-to-game schemas,
+conversion pipeline, and validation gates that keep the in-progress game
+adaptation in sync with what's already public.
 
 Active development happens in a private workshop. This public copy is cleaned
 for portfolio review: only released Act 1 material is included, later acts
@@ -52,6 +49,5 @@ python -m compileall tools
 
 Part of the Starforge cluster:
 
-- [starforge-narrative-tools](https://github.com/AthenaTheOwl/starforge-narrative-tools) - public Act 1 corpus + conversion/validation tooling
 - [starforge-renpy-demo](https://github.com/AthenaTheOwl/starforge-renpy-demo) - Act 1 Ren'Py narrative demo copy
 - [starforge-rpg-prototype](https://github.com/AthenaTheOwl/starforge-rpg-prototype) - Act 1 Godot RPG prototype copy
