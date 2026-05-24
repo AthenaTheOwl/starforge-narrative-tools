@@ -43,7 +43,16 @@ iterated on safely.
 ```powershell
 python -m pytest
 python -m compileall tools
+python tools\check_release.py
 ```
+
+`tools/check_release.py` is the deterministic orchestration entry point for
+this repo. It intentionally uses Python validation only because this repo owns
+source hygiene and conversion tooling, not a playable engine runtime. For
+cluster-wide strict runs it also accepts `--clean --fail-on-generated`; those
+flags are no-ops here because this repo has no engine-generated runtime
+artifacts to keep or clean. See
+`docs/deterministic-orchestration.md` for the proof gates.
 
 ## See also
 
@@ -51,3 +60,5 @@ Part of the Starforge cluster:
 
 - [starforge-renpy-demo](https://github.com/AthenaTheOwl/starforge-renpy-demo) - Act 1 Ren'Py narrative demo copy
 - [starforge-rpg-prototype](https://github.com/AthenaTheOwl/starforge-rpg-prototype) - Act 1 Godot RPG prototype copy
+- [starforge-twine-demo](https://github.com/AthenaTheOwl/starforge-twine-demo) - single-HTML Twine/SugarCube demo
+- [starforge-choicescript-demo](https://github.com/AthenaTheOwl/starforge-choicescript-demo) - stat-forward ChoiceScript demo
