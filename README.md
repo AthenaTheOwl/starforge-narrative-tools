@@ -21,6 +21,38 @@ iterated on safely.
 - AI-assisted creative work still needs release boundaries, validation, and
   clean public/private separation.
 
+## Live demo
+
+This repo is a Python toolkit, not a playable engine build, so its honest
+deployable surface is a **tool demo** that runs the real converter on the real
+released prose.
+
+- No-argument capability tour (read-only, writes nothing):
+
+  ```powershell
+  python tools\demo.py
+  ```
+
+  Converts all 66 released Act 1 prose files in memory and prints a prose-line ->
+  generated-Ren'Py-line summary plus a sample of generated script.
+
+- Interactive Streamlit app (deploy target: Streamlit Community Cloud, entry
+  point `streamlit_app.py`):
+
+  ```powershell
+  pip install -r requirements.txt
+  streamlit run streamlit_app.py
+  ```
+
+  Pick a released Act 1 chapter and watch authored markdown prose convert to
+  engine-ready Ren'Py live, side by side, with the speaker map and a download
+  button. The toolkit has zero runtime dependencies; only this demo UI needs
+  streamlit (`requirements.txt`).
+
+The playable game builds live in the sibling repos (ChoiceScript static web
+build, Twine single-HTML, plus the Ren'Py and Godot prototypes). This repo owns
+the conversion/validation pipeline.
+
 ## What is included
 
 - `prose/act1/` - released Act 1 prose slice copied from the active workshop

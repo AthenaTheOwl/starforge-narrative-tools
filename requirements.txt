@@ -1,0 +1,3 @@
+# Runtime deps for the Streamlit demo only.
+# The toolkit itself (tools/*.py) has zero runtime dependencies (stdlib only).
+streamlit>=1.30
