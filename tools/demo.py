@@ -30,6 +30,11 @@ def _load(name: str):
 
 
 def main() -> int:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    if hasattr(sys.stderr, "reconfigure"):
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
     print("=" * 70)
     print("Starforge Narrative Tools — capability demo")
     print("=" * 70)
