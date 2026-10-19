@@ -27,16 +27,19 @@ def main() -> int:
         errors.append(f"expected only prose/act1, found: {prose_dirs}")
 
     for path in ROOT.rglob("*"):
-        if ".git" in path.parts:
+        # Check only parts inside the repo, so the checkout's parent
+        # directories cannot trigger or exempt a path.
+        parts = path.relative_to(ROOT).parts
+        if ".git" in parts:
             continue
-        if any(part in IGNORED_GENERATED_DIRS for part in path.parts):
+        if any(part in IGNORED_GENERATED_DIRS for part in parts):
             continue
-        if any(part in FORBIDDEN_NAMES for part in path.parts):
+        if any(part in FORBIDDEN_NAMES for part in parts):
             errors.append(f"forbidden generated artifact: {rel(path)}")
         if path.is_file() and path.suffix in FORBIDDEN_SUFFIXES:
             errors.append(f"forbidden generated file: {rel(path)}")
-        if any(UNRELEASED_PATTERN.search(part) for part in path.parts):
-            if "README.md" in path.parts or "docs" in path.parts or "spec" in path.parts:
+        if any(UNRELEASED_PATTERN.search(part) for part in parts):
+            if "README.md" in parts or "docs" in parts or "spec" in parts:
                 continue
             errors.append(f"unreleased act reference in public source path: {rel(path)}")
 

@@ -27,12 +27,14 @@ def test_public_specs_present() -> None:
 
 
 def test_unreleased_act_paths_are_not_present() -> None:
-    offenders = [
-        path.relative_to(ROOT).as_posix()
-        for path in ROOT.rglob("*")
-        if "site-packages" not in path.parts
-        and any(re.search(r"act([2-9]|[1-9][0-9])", part, re.IGNORECASE) for part in path.parts)
-    ]
+    offenders: list[str] = []
+    for path in ROOT.rglob("*"):
+        # Only parts inside the repo; a parent like "impact2" must not count.
+        parts = path.relative_to(ROOT).parts
+        if "site-packages" in parts:
+            continue
+        if any(re.search(r"act([2-9]|[1-9][0-9])", part, re.IGNORECASE) for part in parts):
+            offenders.append(path.relative_to(ROOT).as_posix())
 
     assert offenders == []
 
