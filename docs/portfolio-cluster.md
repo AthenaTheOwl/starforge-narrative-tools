@@ -35,7 +35,7 @@ In a separate October 19, 2026 pass, `starforge-rpg-prototype`'s native Godot
 status above. That pass also repaired Godot dialogue data and refreshed the
 balance-warning list; see its `docs/verification-scope.md`.
 
-### Historical baseline
+## Historical Baseline
 
 Recorded during the playtest/balance gate update on 2026-05-24:
 
