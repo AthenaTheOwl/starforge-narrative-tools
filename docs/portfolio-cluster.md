@@ -28,9 +28,8 @@ Rechecked October 18, 2026 without changing story source:
 - ChoiceScript: scope/path checks, quicktest and 10,000 seeded randomtest
   iterations passed. Sampling does not establish every possible branch sequence.
 
-Each repo's `docs/verification-scope.md` explains what its result establishes
-and proposes one bounded agent-review experiment. No role installation, story
-rewrite, balance change or deployment was part of this pass.
+Each repo's `docs/verification-scope.md` explains what its result establishes.
+No story rewrite, balance change or deployment was part of this pass.
 
 ### Historical baseline
 
