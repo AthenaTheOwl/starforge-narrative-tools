@@ -289,14 +289,14 @@ class ProseConverter:
         text = convert_bbcode(text)
         text = escape_renpy_text(text)
         # Show as amber styled text (protocol messages)
-        return f'{indent}narrator "{{{{color=#f1c40f}}}}{text}{{{{/color}}}}"'
+        return f'{indent}narrator "{{color=#f1c40f}}{text}{{/color}}"'
 
     def format_ai_citizen_log(self, text, indent="    "):
         """Format AI citizen log (<WAFFLE.BAT//>, <BUBBLES//>, etc.) as styled text."""
         text = convert_bbcode(text)
         text = escape_renpy_text(text)
         # Show as green styled text (AI citizen logs)
-        return f'{indent}narrator "{{{{color=#43d4a8}}}}{text}{{{{/color}}}}"'
+        return f'{indent}narrator "{{color=#43d4a8}}{text}{{/color}}"'
 
     def format_blockquote(self, lines, indent="    "):
         """Format a blockquote block as styled narrator text."""
@@ -311,7 +311,7 @@ class ProseConverter:
         if not clean_lines:
             return ""
         text = "\\n".join(clean_lines)
-        return f'{indent}narrator "{{{{color=#808090}}}}{text}{{{{/color}}}}"'
+        return f'{indent}narrator "{{color=#808090}}{text}{{/color}}"'
 
     def convert_file(self, filepath):
         """Convert a single prose .md file to .rpy content."""
