@@ -83,6 +83,9 @@ docs/         framing and the cleanup policy
 
 Excluded on purpose: engine runtime files, unreleased later-act prose, compiled Ren'Py and saves, Godot editor state, SDK folders, private task-daemon state.
 
+Current proof and a bounded agent-review pilot are documented in
+[verification scope](docs/verification-scope.md), checked October 18, 2026.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

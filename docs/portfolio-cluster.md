@@ -13,6 +13,25 @@ in one repo do not promote another repo.
 
 ## Current Local Evidence
 
+Rechecked October 18, 2026 without changing story source:
+
+- Narrative tools: 10 Python tests, public-scope validation and compilation passed.
+- Ren'Py: 7 Python tests, static validation, route audit and native 8.5.2 lint passed;
+  the strict gate cleaned generated engine files.
+- Godot: 3 Python tests, project/path/balance checks passed with the same five
+  balance warnings. GUT remains `not_run`; no Godot executable was configured.
+- Twine: source checks and Tweego passed; four Chromium smokes passed. A locked
+  old report directory was avoided with the release gate's new `--browser-output`
+  option pointing to a fresh evidence directory.
+- ChoiceScript: scope/path checks, quicktest and 10,000 seeded randomtest
+  iterations passed. Sampling does not establish every possible branch sequence.
+
+Each repo's `docs/verification-scope.md` explains what its result establishes
+and proposes one bounded agent-review experiment. No role installation, story
+rewrite, balance change or deployment was part of this pass.
+
+### Historical baseline
+
 Recorded during the playtest/balance gate update on 2026-05-24:
 
 - `starforge-narrative-tools`: 7 pytest checks passed, public-scope validation passed, tool compilation passed.
