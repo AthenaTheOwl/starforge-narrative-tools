@@ -20,6 +20,8 @@ Rechecked October 18, 2026 without changing story source:
   the strict gate cleaned generated engine files.
 - Godot: 3 Python tests, project/path/balance checks passed with the same five
   balance warnings. GUT remains `not_run`; no Godot executable was configured.
+  Superseded on October 19, 2026 by the rpg repo's native Godot 4.7.2 gate
+  (GUT plus a seeded runtime smoke); see its `docs/verification-scope.md`.
 - Twine: source checks and Tweego passed; four Chromium smokes passed. A locked
   old report directory was avoided with the release gate's new `--browser-output`
   option pointing to a fresh evidence directory.
