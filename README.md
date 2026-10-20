@@ -84,7 +84,8 @@ docs/         framing and the cleanup policy
 Excluded on purpose: engine runtime files, unreleased later-act prose, compiled Ren'Py and saves, Godot editor state, SDK folders, private task-daemon state.
 
 Current proof is documented in
-[verification scope](docs/verification-scope.md), checked October 18, 2026.
+[verification scope](docs/verification-scope.md), checked October 18, 2026,
+with an October 19 note on the converter output tests.
 
 ## License
 
