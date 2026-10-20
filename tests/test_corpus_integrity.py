@@ -27,12 +27,14 @@ def test_public_specs_present() -> None:
 
 
 def test_unreleased_act_paths_are_not_present() -> None:
-    offenders = [
-        path.relative_to(ROOT).as_posix()
-        for path in ROOT.rglob("*")
-        if "site-packages" not in path.parts
-        and any(re.search(r"act([2-9]|[1-9][0-9])", part, re.IGNORECASE) for part in path.parts)
-    ]
+    offenders: list[str] = []
+    for path in ROOT.rglob("*"):
+        # Only parts inside the repo; a parent like "impact2" must not count.
+        parts = path.relative_to(ROOT).parts
+        if "site-packages" in parts:
+            continue
+        if any(re.search(r"act([2-9]|[1-9][0-9])", part, re.IGNORECASE) for part in parts):
+            offenders.append(path.relative_to(ROOT).as_posix())
 
     assert offenders == []
 
@@ -40,7 +42,8 @@ def test_unreleased_act_paths_are_not_present() -> None:
 def test_unreleased_act_tokens_are_not_present_in_source() -> None:
     offenders: list[str] = []
     for path in ROOT.rglob("*"):
-        if "tests" in path.parts:
+        # Only parts inside the repo; a parent named "tests" must not exempt the tree.
+        if "tests" in path.relative_to(ROOT).parts:
             continue
         if not path.is_file() or path.suffix not in {".py", ".md", ".txt"}:
             continue
@@ -70,9 +73,10 @@ def test_no_generated_runtime_artifacts() -> None:
 
     offenders: list[str] = []
     for path in ROOT.rglob("*"):
-        if "__pycache__" in path.parts or ".pytest_cache" in path.parts:
+        parts = path.relative_to(ROOT).parts
+        if "__pycache__" in parts or ".pytest_cache" in parts:
             continue
-        if any(part in forbidden_names for part in path.parts):
+        if any(part in forbidden_names for part in parts):
             offenders.append(str(path.relative_to(ROOT)))
         if path.is_file() and path.suffix in forbidden_suffixes:
             offenders.append(str(path.relative_to(ROOT)))

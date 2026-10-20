@@ -1,6 +1,6 @@
 # starforge-narrative-tools
 
-The prologue opens on a form. GUILD CONCORD - FORM 7-DELTA: vessel boarded, casualties 0 (crew) / 4 (hostile, non-fatal), coffee machine status unchanged, the rest redacted. That paragraph is markdown in this repo. By the time the converter is done with it, it's a Ren'Py label with a speaker, color tags, and a pause — engine-ready, generated, do-not-edit-by-hand. This repo is the machine that does that, to all 66 chapters at once.
+The prologue opens on a form. GUILD CONCORD - FORM 7-DELTA: vessel boarded, casualties 0 (crew) / 4 (hostile, non-fatal), coffee machine status unchanged, the rest redacted. That paragraph is markdown in this repo. By the time the converter is done with it, it's a Ren'Py label with a speaker, color tags, and a pause — engine-ready, generated, do-not-edit-by-hand. This repo is the machine that does that, to all 65 chapters at once.
 
 ## What it does
 
@@ -32,12 +32,18 @@ Speakers mapped in converter:     39
 
 Sample generated Ren'Py (first 18 lines of 00_prologue_floors_not_thrones.md):
 
+  | ## Generated from 00_prologue_floors_not_thrones.md by convert_prose.py
+  | ## Do not edit manually — re-run converter after prose changes
+  |
   | label act1_00_prologue_floors_not_thrones:
+  |     narrator "{color=#808090}{b}GUILD CONCORD - FORM 7-DELTA{/b}\n{i}Vessel:{/i} Lumen Thief (Independent)\n ... {/color}"
+  |     pause 0.3
   |     narrator "{i}The hull screams before the alarms do.{/i}"
+  |     ...
   |     elia "{i}[[into comm, not breaking stride]]{/i} Waffle. Report."
 ```
 
-47,473 prose lines in, 29,502 generated script lines out. None of those output lines are checked in — they're produced fresh every run, which is the whole point of keeping the prose as the source.
+The 66 files are the 65 chapters plus `act1_combined.md`, a single-file compilation of those same chapters, so the demo's total counts every chapter twice. The chapters alone (the total minus the `act1_combined.md` row) are 23,607 prose lines in, 14,685 generated script lines out. None of those output lines are checked in — they're produced fresh every run, which is the whole point of keeping the prose as the source.
 
 ## Live demo
 
@@ -83,8 +89,9 @@ docs/         framing and the cleanup policy
 
 Excluded on purpose: engine runtime files, unreleased later-act prose, compiled Ren'Py and saves, Godot editor state, SDK folders, private task-daemon state.
 
-Current proof and a bounded agent-review pilot are documented in
-[verification scope](docs/verification-scope.md), checked October 18, 2026.
+Current proof is documented in
+[verification scope](docs/verification-scope.md), checked October 18, 2026,
+with an October 19 note on the converter output tests.
 
 ## License
 
