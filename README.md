@@ -32,8 +32,14 @@ Speakers mapped in converter:     39
 
 Sample generated Ren'Py (first 18 lines of 00_prologue_floors_not_thrones.md):
 
+  | ## Generated from 00_prologue_floors_not_thrones.md by convert_prose.py
+  | ## Do not edit manually — re-run converter after prose changes
+  |
   | label act1_00_prologue_floors_not_thrones:
+  |     narrator "{color=#808090}{b}GUILD CONCORD - FORM 7-DELTA{/b}\n{i}Vessel:{/i} Lumen Thief (Independent)\n ... {/color}"
+  |     pause 0.3
   |     narrator "{i}The hull screams before the alarms do.{/i}"
+  |     ...
   |     elia "{i}[[into comm, not breaking stride]]{/i} Waffle. Report."
 ```
 
